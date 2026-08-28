@@ -1,29 +1,32 @@
 🤖 RAG Chatbot
 
-Description: An AI-powered Retrieval-Augmented Generation chatbot that retrieves relevant information from documents using FAISS and Sentence Transformers, then uses the Gemini API to generate answers through a Flask web interface.
+An AI-powered **Retrieval-Augmented Generation (RAG) chatbot** that retrieves relevant information from documents using **FAISS** and  **Sentence Transformers** , then uses the **Google Gemini API** to generate contextual answers through a  **Flask web interface** .
 
 🌐 Live Demo
 
 Try the chatbot online:
 
-Live Demo: 
+Live Demo:
 
 📌 Project Overview
 
-RAG Chatbot is an AI-powered chatbot built using Retrieval-Augmented Generation (RAG).
+RAG Chatbot is an AI-powered chatbot built using  **Retrieval-Augmented Generation (RAG)** .
 
-The chatbot can answer user questions using information from provided documents. Instead of directly asking the AI model to generate an answer, the system first searches the available documents for relevant information and then provides that information to the AI model to generate the final response.
+The chatbot answers user questions using information from provided documents. Instead of directly asking the AI model to generate an answer, the system first searches the documents for relevant information using  **Sentence Transformers and FAISS** . The retrieved information is then provided to the  **Gemini API** , which generates the final response.
 
-This makes the chatbot more useful for answering questions based on specific knowledge or documents.
+This approach helps the chatbot provide answers based on specific documents and knowledge sources.
 
 ### 🚀 Features
 
-* AI-powered question answering
-* Document-based information retrieval
-* RAG-based response generation
-* Simple and user-friendly chatbot interface
-* Markdown-formatted responses
-* Flask-based web application
+* 🤖 AI-powered question answering
+* 📄 Document-based information retrieval
+* 🔍 FAISS-based similarity search
+* 🧠 Sentence Transformer embeddings
+* 💬 Gemini API for answer generation
+* 🔗 Retrieval-Augmented Generation (RAG)
+* 🌐 Flask-based web application
+* 🎨 Simple and user-friendly chatbot interface
+* 📝 Markdown-formatted responses
 
 ---
 
@@ -42,14 +45,15 @@ This makes the chatbot more useful for answering questions based on specific kno
 
 ### AI / RAG
 
-- Retrieval-Augmented Generation (RAG)
-- Text Embeddings
-- Vector Similarity Search
-- Large Language Model (LLM)
+* Retrieval-Augmented Generation (RAG)
+* Sentence Transformers
+* Text Embeddings
+* FAISS (Facebook AI Similarity Search)
+* Google Gemini API
+* Large Language Model (LLM)
 
 ### Tools
 
 - Git
 - GitHub
 - Python Virtual Environment (venv)
-- Markdown
