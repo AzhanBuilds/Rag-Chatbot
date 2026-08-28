@@ -1,0 +1,223 @@
+# Artificial Intelligence
+Artificial Intelligence, or AI, is a technology that enables computers and machines to perform tasks that normally require human intelligence.
+AI can understand information, learn from data, recognize patterns, solve problems, and make decisions.
+
+## Types of AI
+There are three commonly discussed types of AI:
+1. Narrow AI – AI designed to perform a specific task. Examples include voice assistants, recommendation systems, and chatbots.
+2. General AI – A theoretical type of AI that would be able to perform many different intellectual tasks like a human.
+3. Super AI – A theoretical form of AI that would have intelligence beyond human capabilities.
+
+## Applications of AI
+AI is used in many areas such as healthcare, education, banking, transportation, cybersecurity, and entertainment.
+
+Examples include:
+* Chatbots for customer support
+* Recommendation systems on websites
+* Face recognition
+* Fraud detection
+* Medical diagnosis assistance
+* Self-driving technology
+
+## Machine Learning
+Machine Learning is a part of AI. It allows computers to learn patterns from data and make predictions or decisions without being explicitly programmed for every situation.
+For example, a machine learning model can learn from previous house prices and predict the price of a new house.
+
+## Deep Learning
+Deep Learning is a branch of machine learning that uses neural networks with multiple layers. It is commonly used for image recognition, speech recognition, natural language processing, and other complex tasks.
+
+## Natural Language Processing
+Natural Language Processing, or NLP, allows computers to understand and process human language.
+
+Examples include:
+* Chatbots
+* Language translation
+* Text classification
+* Sentiment analysis
+* Question answering
+
+## Generative AI
+Generative AI is a type of AI that can create new content based on user instructions. It can generate text, images, audio, and other types of content.
+
+Large Language Models, or LLMs, are AI models trained on large amounts of text. They can understand questions and generate human-like responses.
+
+## Benefits of AI
+AI can automate repetitive tasks, analyze large amounts of data quickly, improve decision-making, and provide useful assistance to people and organizations.
+
+## Limitations of AI
+AI depends on the quality of its training data and may sometimes produce incorrect or biased results. Human supervision and verification are important when using AI for important decisions.
+
+## Conclusion
+Artificial Intelligence is an important technology that is changing many industries. AI, machine learning, deep learning, NLP, and generative AI are used to build intelligent applications that can help solve real-world problems.
+
+| User says           | Chatbot response                                                        |
+| ------------------- | ----------------------------------------------------------------------- |
+| Hi                  | Hello! 👋 I'm your AI assistant. What would you like to know?                                           |
+| Hello               | Hi! 😊 What would you like to know?                                     |
+| Hey                 | Hey! 👋 How can I assist you?                                           |
+| Hi there            | Hello! How can I help?                                                  |
+| Good morning        | Good morning! ☀️ How can I help you?                                    |
+| Good afternoon      | Good afternoon! 😊 How can I assist you?                                |
+| Good evening        | Good evening! 🌙 How can I help you?
+  Good job            | Thank you! 😄 I'm ready for your next question.
+| How are you?        | I'm doing great! 😊 How can I help you today?                           |
+| What are you doing? | I'm here to answer your questions! 🤖                                   |
+| Thank you           | You're welcome! 😊 Feel free to ask another question.                                                      |
+| Thanks              | You're welcome! 👍                                                      |
+| Bye                 | Goodbye! 👋 Have a great day!                                           |
+| See you             | See you later! 👋                                                       |
+| Who are you?        | I'm an AI chatbot that can answer questions using my knowledge base. 🤖 |
+| You are helpful     | I'm glad I could help!
+
+Who created you? → “I was created by Mohammed Azhan. 🤖”
+Who made you? → “I was created by Mohammed Azhan.”
+Created by? → “I was created by Mohammed Azhan.”
+Who is your creator? → “My creator is Mohammed Azhan.”
+Who developed this chatbot? → “This chatbot was developed by Mohammed Azhan.”
+
+## About This Chatbot
+This is an AI-powered chatbot designed to answer questions using a knowledge base. It uses Retrieval-Augmented Generation (RAG) to find relevant information and generate useful answers.
+
+## Retrieval-Augmented Generation
+RAG stands for Retrieval-Augmented Generation. It combines information retrieval with an AI language model.
+When a user asks a question, the system converts the question into an embedding and searches the vector database for relevant information. The retrieved information is then provided to the language model, which generates the final answer.
+
+## Chatbot Capabilities
+The chatbot can:
+- Answer questions about Artificial Intelligence
+- Explain AI concepts in simple language
+- Answer questions using information from the knowledge base
+- Handle greetings such as Hi, Hello, and Hey
+- Respond to simple conversations
+- Explain RAG and related technologies
+
+## Creator
+This chatbot was developed by Mohammed Azhan.
+
+## Chatbot Limitations
+The chatbot may not be able to answer questions that are outside its knowledge base. The accuracy of its answers depends on the information available in the knowledge base.
+
+What is an AI chatbot?
+An AI chatbot is a software application that can communicate with users and provide answers using artificial intelligence.
+
+What is an LLM?
+LLM stands for Large Language Model. It is an AI model trained on large amounts of text and designed to understand and generate human language.
+
+What is an embedding?
+An embedding is a numerical representation of text that helps a computer understand the meaning and similarity between pieces of text.
+
+What is a vector database?
+A vector database stores numerical representations of information and allows the system to find information that is semantically similar to a user's question.
+
+What is FAISS?
+FAISS is a library used for efficient similarity search of vectors. In a RAG system, it can be used to find relevant document chunks for a user's question.
+
+RAG Workflow
+
+The RAG workflow has several steps:
+Documents are loaded into the system.
+Documents are divided into smaller chunks.
+The chunks are converted into embeddings.
+The embeddings are stored in a vector index.
+The user's question is converted into an embedding.
+The system searches for similar chunks.
+The retrieved information is sent to the language model.
+The language model generates the final answer.
+
+Project Information
+Project Name: AI-Powered RAG Chatbot
+The project demonstrates how Retrieval-Augmented Generation can be used to build a chatbot that retrieves relevant information from a knowledge base before generating an answer.
+The project is designed to provide simple and useful answers based on the available knowledge.
+
+What is Prompt Engineering?
+Prompt engineering is the process of writing clear and specific instructions for an AI model to obtain a useful response.
+
+What is a Knowledge Base?
+A knowledge base is a collection of information that a system can use to answer questions. In this project, the knowledge base is stored in text documents such as ai.txt.
+
+What is a Document Chunk?
+A document chunk is a smaller part of a larger document. Splitting documents into chunks makes it easier for the RAG system to find the most relevant information.
+
+Advantages of RAG
+RAG can use information from a specific knowledge base, reduce the need to retrain the language model for every new document, and provide answers based on retrieved context.
+
+What is Python?
+Python is a high-level programming language known for its simple syntax and wide range of applications, including AI, machine learning, web development, and data analysis.
+
+What is Flask?
+Flask is a lightweight Python web framework used to build web applications and APIs.
+
+What is an API?
+API stands for Application Programming Interface. It allows different software applications to communicate with each other.
+
+What is a vector?
+A vector is a numerical representation of information. In AI applications, vectors can represent the meaning of text and can be compared to find similar information.
+
+Why is RAG useful?
+RAG is useful because it allows an AI application to retrieve information from a specific knowledge base and use that information when generating responses.
+
+What happens when a user asks a question?
+The chatbot receives the question, creates an embedding, searches the FAISS index for relevant information, retrieves matching document chunks, sends the context to the language model, and returns the generated answer.
+
+What happens if the answer is not in the knowledge base?
+If the required information is not available in the knowledge base, the chatbot may not provide a reliable answer. The system should indicate when the available information is insufficient instead of presenting an uncertain answer as a fact.
+
+Future Improvements
+The project can be improved by adding more documents, better document chunking, conversation history, source references, improved error handling, and a larger knowledge base.
+
+What does AI stand for?
+AI stands for Artificial Intelligence.
+
+What does RAG stand for?
+RAG stands for Retrieval-Augmented Generation.
+
+What does NLP stand for?
+NLP stands for Natural Language Processing.
+
+What does LLM stand for?
+LLM stands for Large Language Model.
+
+What does API stand for?
+API stands for Application Programming Interface.
+
+What is semantic search?
+Semantic search finds information based on meaning rather than only matching exact words.
+
+Why are documents divided into chunks?
+Documents are divided into smaller chunks so the retrieval system can find specific and relevant information more efficiently.
+
+What is the role of Sentence Transformers?
+Sentence Transformers convert sentences or text into embeddings that can be compared for semantic similarity.
+
+What is the role of FAISS in this project?
+FAISS stores and searches vector embeddings to find document chunks that are most similar to the user's question.
+
+What is the role of Gemini?
+Gemini is used as the language model that generates the final response using the relevant information retrieved by the RAG system.
+
+User Interaction
+The chatbot is designed to interact with users in a simple and friendly way.
+
+How can you help me?
+Ask me a question about the topics in my knowledge base, and I'll try to provide a clear answer.
+
+Are you an AI?
+Yes! 🤖 I'm an AI-powered chatbot. Ask me anything related to my knowledge base.
+
+Are you intelligent?
+I can process questions and generate useful answers, but I'm still an AI system and I can sometimes make mistakes.
+
+Tell me something interesting about AI.
+Here's something interesting: AI can learn patterns from large amounts of data and use those patterns to make predictions or generate content.
+
+Give me a quick AI fact.
+AI is used in many everyday applications, including search engines, recommendation systems, voice assistants, and chatbots.
+
+Can you explain it simply?  
+Of course! 😊 Tell me the AI topic you want explained, and I'll try to explain it in simple language.
+
+Surprise me.
+Here's an AI thought for you: the most useful AI systems don't just generate answers—they can combine models with relevant information to make those answers more useful.
+
+I don't understand.
+No problem! 😊 I can explain the topic step by step using simple words. Tell me which part is confusing.
