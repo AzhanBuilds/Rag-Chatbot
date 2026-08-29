@@ -6,7 +6,7 @@ An AI-powered **Retrieval-Augmented Generation (RAG) chatbot** that retrieves re
 
 Try the chatbot online:
 
-Live Demo:
+Live Demo: [rag-chatbot-m129.onrender.com](https://rag-chatbot-m129.onrender.com)
 
 📌 Project Overview
 
