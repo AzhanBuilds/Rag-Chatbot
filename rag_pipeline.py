@@ -6,10 +6,6 @@ from sentence_transformers import SentenceTransformer
 from gemini_service import ask_gemini
 
 
-# Load embedding model
-model = SentenceTransformer("all-MiniLM-L6-v2")
-
-
 # Load FAISS index
 index = faiss.read_index("vectorstore/index.faiss")
 
@@ -19,24 +15,39 @@ with open("vectorstore/chunks.pkl", "rb") as file:
     chunks = pickle.load(file)
 
 
+# Model will be loaded only when needed
+model = None
+
+
+def get_model():
+    global model
+
+    if model is None:
+        model = SentenceTransformer("all-MiniLM-L6-v2")
+
+    return model
+
+
 def answer_question(question):
 
-    # 1. Convert question into embedding
-    question_embedding = model.encode([question])
+    # 1. Load embedding model when needed
+    embedding_model = get_model()
 
-    question_embedding = np.array(
-        question_embedding
+    # 2. Convert question into embedding
+    question_embedding = embedding_model.encode(
+        [question],
+        convert_to_numpy=True
     ).astype("float32")
 
 
-    # 2. Search FAISS
+    # 3. Search FAISS
     distances, indices = index.search(
         question_embedding,
         3
     )
 
 
-    # 3. Get relevant chunks
+    # 4. Get relevant chunks
     relevant_chunks = []
 
     for i in indices[0]:
@@ -45,11 +56,11 @@ def answer_question(question):
             relevant_chunks.append(chunks[i])
 
 
-    # 4. Combine chunks
+    # 5. Combine chunks
     context = "\n\n".join(relevant_chunks)
 
 
-    # 5. Create RAG prompt
+    # 6. Create RAG prompt
     prompt = f"""
 You are a helpful AI assistant.
 
@@ -69,17 +80,15 @@ Answer:
 """
 
 
-    # 6. Send context + question to Gemini
+    # 7. Send context + question to Gemini
     answer = ask_gemini(prompt)
-
 
     return answer
 
 
-# Test the complete RAG pipeline
 if __name__ == "__main__":
 
-    question = "what is Artifitial Intelligence?"
+    question = "what is Artificial Intelligence?"
 
     answer = answer_question(question)
 
