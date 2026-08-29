@@ -23,7 +23,11 @@ for document in documents:
 
 
 # Create embeddings
-embeddings = model.encode(all_chunks)
+embeddings = model.encode(
+    all_chunks,
+    batch_size=8,
+    show_progress_bar=True
+)
 
 
 # Convert embeddings to float32
