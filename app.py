@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import markdown
 from rag_pipeline import answer_question
+import os
 
 app = Flask(__name__)
 
@@ -34,4 +35,5 @@ def chat():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)
