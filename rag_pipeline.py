@@ -2,8 +2,24 @@ import faiss
 import pickle
 import numpy as np
 
-from sentence_transformers import SentenceTransformer
+from google import genai
+from google.genai import types
 from gemini_service import ask_gemini
+import os
+from dotenv import load_dotenv
+
+
+# Load environment variables
+load_dotenv()
+
+api_key = os.getenv("GEMINI_API_KEY")
+
+if not api_key:
+    raise ValueError("GEMINI_API_KEY is not set")
+
+
+# Create Gemini client
+client = genai.Client(api_key=api_key)
 
 
 # Load FAISS index
@@ -15,52 +31,50 @@ with open("vectorstore/chunks.pkl", "rb") as file:
     chunks = pickle.load(file)
 
 
-# Model will be loaded only when needed
-model = None
+def create_query_embedding(question):
 
+    result = client.models.embed_content(
+        model="gemini-embedding-001",
+        contents=question,
+        config=types.EmbedContentConfig(
+            task_type="RETRIEVAL_QUERY",
+            output_dimensionality=768
+        )
+    )
 
-def get_model():
-    global model
-
-    if model is None:
-        model = SentenceTransformer("all-MiniLM-L6-v2")
-
-    return model
+    return np.array(
+        result.embeddings[0].values,
+        dtype="float32"
+    ).reshape(1, -1)
 
 
 def answer_question(question):
 
-    # 1. Load embedding model when needed
-    embedding_model = get_model()
-
-    # 2. Convert question into embedding
-    question_embedding = embedding_model.encode(
-        [question],
-        convert_to_numpy=True
-    ).astype("float32")
+    # 1. Create Gemini embedding for the question
+    question_embedding = create_query_embedding(question)
 
 
-    # 3. Search FAISS
+    # 2. Search FAISS
     distances, indices = index.search(
         question_embedding,
         3
     )
 
 
-    # 4. Get relevant chunks
+    # 3. Get relevant chunks
     relevant_chunks = []
 
     for i in indices[0]:
 
-        if i < len(chunks):
+        if i >= 0 and i < len(chunks):
             relevant_chunks.append(chunks[i])
 
 
-    # 5. Combine chunks
+    # 4. Combine chunks
     context = "\n\n".join(relevant_chunks)
 
 
-    # 6. Create RAG prompt
+    # 5. Create RAG prompt
     prompt = f"""
 You are a helpful AI assistant.
 
@@ -80,7 +94,7 @@ Answer:
 """
 
 
-    # 7. Send context + question to Gemini
+    # 6. Send to Gemini
     answer = ask_gemini(prompt)
 
     return answer
@@ -88,7 +102,7 @@ Answer:
 
 if __name__ == "__main__":
 
-    question = "what is Artificial Intelligence?"
+    question = "What is Artificial Intelligence?"
 
     answer = answer_question(question)
 

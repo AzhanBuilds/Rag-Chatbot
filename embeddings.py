@@ -1,13 +1,40 @@
-from sentence_transformers import SentenceTransformer
-from rag import load_documents, split_text
+import os
 import faiss
 import numpy as np
 import pickle
-import os
+
+from dotenv import load_dotenv
+from google import genai
+from google.genai import types
+
+from rag import load_documents, split_text
 
 
-# Load embedding model
-model = SentenceTransformer("all-MiniLM-L6-v2")
+load_dotenv()
+
+api_key = os.getenv("GEMINI_API_KEY")
+
+if not api_key:
+    raise ValueError("GEMINI_API_KEY is not set")
+
+
+client = genai.Client(api_key=api_key)
+
+
+def create_embeddings(texts):
+    result = client.models.embed_content(
+        model="gemini-embedding-001",
+        contents=texts,
+        config=types.EmbedContentConfig(
+            task_type="RETRIEVAL_DOCUMENT",
+            output_dimensionality=768
+        )
+    )
+
+    return np.array(
+        [embedding.values for embedding in result.embeddings],
+        dtype="float32"
+    )
 
 
 # Load documents
@@ -22,30 +49,20 @@ for document in documents:
     all_chunks.extend(chunks)
 
 
-# Create embeddings
-embeddings = model.encode(
-    all_chunks,
-    batch_size=8,
-    show_progress_bar=True
-)
-
-
-# Convert embeddings to float32
-embeddings = np.array(embeddings).astype("float32")
-
-
-# Get the number of dimensions
-dimension = embeddings.shape[1]
-
 print("Number of chunks:", len(all_chunks))
-print("Embedding dimensions:", dimension)
+
+
+# Create Gemini embeddings
+embeddings = create_embeddings(all_chunks)
+
+print("Embedding dimensions:", embeddings.shape[1])
 
 
 # Create FAISS index
+dimension = embeddings.shape[1]
+
 index = faiss.IndexFlatL2(dimension)
 
-
-# Add embeddings to FAISS
 index.add(embeddings)
 
 
@@ -53,7 +70,7 @@ print("FAISS index created!")
 print("Number of vectors:", index.ntotal)
 
 
-# Create vectorstore folder if it doesn't exist
+# Create vectorstore folder
 os.makedirs("vectorstore", exist_ok=True)
 
 
@@ -64,7 +81,7 @@ faiss.write_index(
 )
 
 
-# Save the text chunks
+# Save chunks
 with open("vectorstore/chunks.pkl", "wb") as file:
     pickle.dump(all_chunks, file)
 
