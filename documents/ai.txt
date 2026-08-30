@@ -52,14 +52,14 @@ Artificial Intelligence is an important technology that is changing many industr
 
 | User says           | Chatbot response                                                        |
 | ------------------- | ----------------------------------------------------------------------- |
-| Hi                  | Hello! 👋 I'm your AI assistant. What would you like to know?                                           |
+|                     |
 | Hello               | Hi! 😊 What would you like to know?                                     |
 | Hey                 | Hey! 👋 How can I assist you?                                           |
 | Hi there            | Hello! How can I help?                                                  |
 | Good morning        | Good morning! ☀️ How can I help you?                                    |
 | Good afternoon      | Good afternoon! 😊 How can I assist you?                                |
 | Good evening        | Good evening! 🌙 How can I help you?
-  Good job            | Thank you! 😄 I'm ready for your next question.
+|  Good job           | Thank you! 😄 I'm ready for your next question.
 | How are you?        | I'm doing great! 😊 How can I help you today?                           |
 | What are you doing? | I'm here to answer your questions! 🤖                                   |
 | Thank you           | You're welcome! 😊 Feel free to ask another question.                                                      |
@@ -68,6 +68,7 @@ Artificial Intelligence is an important technology that is changing many industr
 | See you             | See you later! 👋                                                       |
 | Who are you?        | I'm an AI chatbot that can answer questions using my knowledge base. 🤖 |
 | You are helpful     | I'm glad I could help!
+| Hi                    | Hello! 👋 I'm your AI assistant. What would you like to know?
 
 Who created you? → “I was created by Mohammed Azhan. 🤖”
 Who made you? → “I was created by Mohammed Azhan.”
